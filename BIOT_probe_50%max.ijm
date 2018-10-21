@@ -1,0 +1,11 @@
+run("Duplicate...", "duplicate channels=3");
+getRawStatistics(nPixels, mean, min, max); 
+setAutoThreshold("Minimum dark");
+//run("Threshold...");
+setThreshold(max/2, max);
+setOption("BlackBackground", false);
+run("Convert to Mask");
+run("Analyze Particles...", "display");
+i=nResults;
+setResult("Probe", i-1, "Biot");
+close();
